@@ -6,11 +6,8 @@ services:
   - docker
 
 before_install:
-  - echo "start creating an image with Dockerfile"
+  - echo "start creating an image with dockerfile"
   - docker build -t wish2rich/docker-react-app -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true wish2rich/docker-react-app npm run test -- --coverage
-
-after_success:
-  - echo "Test success"
